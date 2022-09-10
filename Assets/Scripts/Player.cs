@@ -9,9 +9,20 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private Transform groundCheckPosition;
+
+    [SerializeField]
+    private LayerMask groundLayer;
+
     private void Awake(){
         //rbにplayerが持っているコンポーネント（当たり判定とか）を保存
         rb = GetComponent<Rigidbody2D>();
+
+        groundCheckPosition = transform.GetChild(0).transform;
+    }
+
+    private void Update(){
+        PlayerJump();
     }
 
     private void FixedUpdate() {
@@ -22,5 +33,22 @@ public class Player : MonoBehaviour
     private void MovePlayer(){
         //横に動く動作
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+    }
+
+    private void PlayerJump(){
+        if(Input.GetMouseButtonDown(0)){//0番はマウスの左クリック（スマホだとタップで出来るはず）
+            Debug.Log("ジャンプボタン");
+            if(IsGrounded() == true){
+                Debug.Log("ジャンプ動作");
+                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                //Impulseは、jumpForceの力が瞬間的に伝わるようにするモード
+                //永続的にできたりもする
+            }
+        }
+    }
+
+    private bool IsGrounded(){//bool型を返す
+        //プレイヤーの足元の当たり判定が、groundLayerと設置しているときにtrueを返す
+        return Physics2D.OverlapCircle(groundCheckPosition.position, 0.1f, groundLayer);
     }
 }
