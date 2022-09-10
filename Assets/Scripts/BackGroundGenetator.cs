@@ -56,7 +56,7 @@ public class BackGroundGenetator : MonoBehaviour
             bambooPosition = new Vector3(nextBambooXPos, bamboo_Y_Pos, 0f);//生成する位置を格納
             newBamboo = Instantiate(bambooPrefab, bambooPosition, Quaternion.identity);//生成
             newBamboo.transform.SetParent(transform);
-            groundPool.Add(newBamboo);//リストに加える
+            bambooPool.Add(newBamboo);//リストに加える
             nextBambooXPos += bamboo_X_Distance;//次に生成する位置へと移動
         }
     }
