@@ -26,8 +26,13 @@ public class BackGroundGenetator : MonoBehaviour
     
     private float waitTime;
 
-    void Update(){
+    void Start(){
         Generate();
+        waitTime = Time.time + generateLevelWaitTime;//指定した時間がたつまで表示されないようにする
+    }
+
+    void Update(){
+        CheckForGroundBamboo();
     }
 
     private void Generate(){
@@ -53,6 +58,47 @@ public class BackGroundGenetator : MonoBehaviour
             newBamboo.transform.SetParent(transform);
             groundPool.Add(newBamboo);//リストに加える
             nextBambooXPos += bamboo_X_Distance;//次に生成する位置へと移動
+        }
+    }
+
+    private void CheckForGroundBamboo(){
+        if(Time.time > waitTime){
+            SetNewGround();
+            SetNewBamboo();
+
+            waitTime = Time.time + generateLevelWaitTime;//指定した時間がたつまで表示されないようにする
+        }
+    }
+
+    private void SetNewGround(){
+        Vector3 groundPosition = Vector3.zero;
+
+        foreach(GameObject obj in groundPool){//groundPoolからovjへどんどん移動させていくイメージ
+            //groundPoolに格納したオブジェクトを実際に表示する
+            if(!obj.activeInHierarchy){//オブジェクトが非表示だった時に表示するようにする
+                groundPosition = new Vector3(nextGroundXPos, ground_Y_Pos, 0f);
+                obj.transform.position = groundPosition;
+                obj.SetActive(true);
+
+                nextGroundXPos += ground_X_Distance;
+
+            }
+        }
+    }
+
+    private void SetNewBamboo(){
+        Vector3 bambooPosition = Vector3.zero;
+
+        foreach(GameObject obj in bambooPool){//groundPoolからovjへどんどん移動させていくイメージ
+            //groundPoolに格納したオブジェクトを実際に表示する
+            if(!obj.activeInHierarchy){//オブジェクトが非表示だった時に表示するようにする
+                bambooPosition = new Vector3(nextBambooXPos, bamboo_Y_Pos, 0f);
+                obj.transform.position = bambooPosition;
+                obj.SetActive(true);
+
+                nextBambooXPos += bamboo_X_Distance;
+
+            }
         }
     }
 }
