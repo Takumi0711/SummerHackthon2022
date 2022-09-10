@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 15805457}
   - component: {fileID: 15805456}
   - component: {fileID: 15805462}
+  - component: {fileID: 15805463}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -286,9 +287,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15805455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.99, y: -3.33, z: 0}
+  m_LocalPosition: {x: -7.998, y: -2.884, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1617342504}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,6 +308,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   jumpForce: 7
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &15805463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15805455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e67a56bebedcc34ca557b2623d767ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +513,36 @@ Canvas:
   m_SortingLayerID: -809793045
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1617342503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1617342504}
+  m_Layer: 0
+  m_Name: GroundCheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1617342504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617342503}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 15805461}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682163483
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +625,7 @@ GameObject:
   - component: {fileID: 2082441855}
   - component: {fileID: 2082441854}
   - component: {fileID: 2082441853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,6 +817,10 @@ PrefabInstance:
     - target: {fileID: 3285890644927473720, guid: 90a14e512a26ade47943c4171d5261a6, type: 3}
       propertyPath: m_Name
       value: Aogakuppoinanika
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285890644927473720, guid: 90a14e512a26ade47943c4171d5261a6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90a14e512a26ade47943c4171d5261a6, type: 3}

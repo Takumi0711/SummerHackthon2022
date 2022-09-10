@@ -14,15 +14,20 @@ public class Player : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
+    private Animations playerAnimations;
+
     private void Awake(){
         //rbにplayerが持っているコンポーネント（当たり判定とか）を保存
         rb = GetComponent<Rigidbody2D>();
 
         groundCheckPosition = transform.GetChild(0).transform;
+
+        playerAnimations = GetComponent<Animations>();
     }
 
     private void Update(){
         PlayerJump();
+        AnimatePlayer();
     }
 
     private void FixedUpdate() {
@@ -50,5 +55,10 @@ public class Player : MonoBehaviour
     private bool IsGrounded(){//bool型を返す
         //プレイヤーの足元の当たり判定が、groundLayerと設置しているときにtrueを返す
         return Physics2D.OverlapCircle(groundCheckPosition.position, 0.1f, groundLayer);
+    }
+
+    private void AnimatePlayer(){
+        playerAnimations.Jumping(rb.velocity.y);//PlayJumpの引数にrigidbodyのY軸速度を割り当て
+        playerAnimations.Running(IsGrounded() == true);
     }
 }
