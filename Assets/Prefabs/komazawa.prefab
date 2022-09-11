@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8487935901647297238}
   - component: {fileID: 3785294376043467613}
   - component: {fileID: 6922857571638036494}
+  - component: {fileID: 5692408228067383719}
   m_Layer: 0
   m_Name: komazawa
   m_TagString: Obstacle
@@ -122,3 +123,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d415d15761c154eaa2fd363ee449bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5692408228067383719
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737926764330630241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 205bc31bc35c6564e8d5dc2e5d28e05f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
