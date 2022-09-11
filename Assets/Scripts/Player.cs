@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed = 8f, jumpForce = 7f;
+    private float moveSpeed, jumpForce = 7f;
 
     private Rigidbody2D rb;
 
@@ -36,7 +36,15 @@ public class Player : MonoBehaviour
     }
 
     private void MovePlayer(){
-        //横に動く動作
+        //横に動く動作 
+        if (Time.time <= 3) {
+            moveSpeed = 8;
+        } else {
+            moveSpeed = 8 + Time.time*0.2f;
+            if (Time.time > 30) {
+                moveSpeed = 14;
+            }
+        }
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
     }
 
