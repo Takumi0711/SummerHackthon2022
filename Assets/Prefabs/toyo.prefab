@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6222623255215101316}
   - component: {fileID: 2159283912432495250}
   - component: {fileID: 6411361907722425247}
+  - component: {fileID: 381171292598551177}
   m_Layer: 0
   m_Name: toyo
   m_TagString: Obstacle
@@ -122,3 +123,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d415d15761c154eaa2fd363ee449bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &381171292598551177
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451788584697683844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5020dd7a45c6fb24fb7fa8633b488c7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
