@@ -37,11 +37,11 @@ public class Player : MonoBehaviour
 
     private void MovePlayer(){
         //横に動く動作 
-        if (Time.time <= 3) {
+        if (Time.timeSinceLevelLoad <= 3) {
             moveSpeed = 8;
         } else {
-            moveSpeed = 8 + Time.time*0.2f;
-            if (Time.time > 30) {
+            moveSpeed = 8 + Time.timeSinceLevelLoad*0.2f;
+            if (Time.timeSinceLevelLoad > 30) {
                 moveSpeed = 14;
             }
         }
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     private void PlayerJump(){
         if(Input.GetMouseButtonDown(0)){//0番はマウスの左クリック（スマホだとタップで出来るはず）
             Debug.Log("ジャンプボタン");
-            
+            Debug.Log(Time.timeSinceLevelLoad);
             if(IsGrounded() == true){
                 Debug.Log("ジャンプ動作");
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);

@@ -5,17 +5,17 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject makibisiPrefab, rockPrefab, fallentreePrefab, jyuntendoPrefab, komazawaPrefab;
+    private GameObject makibisiPrefab, rockPrefab, fallentreePrefab, jyuntendoPrefab, komazawaPrefab, toyoPrefab;
 
     [SerializeField]
-    private float makibisiYPos = -3.75f, rockYPos = -3.5f, fallentreeYPos = -3.75f, jyuntendoYPos = -3.3f, komazawaYPos = -3.3f;
+    private float makibisiYPos = -3.75f, rockYPos = -3.5f, fallentreeYPos = -3.75f, jyuntendoYPos = -3.3f, komazawaYPos = -3.3f, toyoYPos = -3.3f;
 
     [SerializeField]
     private float minSpawnWaitTime = 2f, maxSpawnWaitTime = 3.5f;//生成する時間の最小値と最大値
 
     private float spawnWaitTime;//生成する時間
 
-    private int obstacleTypeCount = 5;//障害物の種類を扱う変数
+    private int obstacleTypeCount = 6;//障害物の種類を扱う変数
     private int obstacleToSpawn = 0;//生成するオブジェクトを扱う数値
 
     private Camera mainCamera;
@@ -24,7 +24,7 @@ public class ObstacleSpawner : MonoBehaviour
     private GameObject newObstacle;//生成するオブジェクトを
 
     [SerializeField]
-    private List<GameObject> makibisiPool, rockPool, fallentreePool, jyuntendoPool, komazawaPool;//オブジェクトを管理するリスト
+    private List<GameObject> makibisiPool, rockPool, fallentreePool, jyuntendoPool, komazawaPool, toyoPool;//オブジェクトを管理するリスト
 
     [SerializeField]
     private int initialObstacleToSpawn = 5; //最初に作っておく数
@@ -39,7 +39,7 @@ public class ObstacleSpawner : MonoBehaviour
     }
 
     void GenerateObstacles(){
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             SpawnObstacles(i);
         }
@@ -95,7 +95,18 @@ public class ObstacleSpawner : MonoBehaviour
                     komazawaPool.Add(newObstacle);//
                     newObstacle.SetActive(false);//リストに格納し、非表示にする
                 }
-                break;   
+                break; 
+
+            case 5:
+                for (int i = 0; i < initialObstacleToSpawn; i++)
+                {
+                    newObstacle = Instantiate(toyoPrefab);//インスタンス化
+                    newObstacle.transform.SetParent(transform);//親を指定して生成した時に見やすくする
+                    toyoPool.Add(newObstacle);//
+                    newObstacle.SetActive(false);//リストに格納し、非表示にする
+                }
+                break; 
+
         }
     }
 
@@ -171,6 +182,19 @@ public class ObstacleSpawner : MonoBehaviour
                     }
                 }
                 break;    
+            
+            case 5:
+                for (int i = 0; i < toyoPool.Count; i++)//リストに格納されているオブジェクトの数だけループ
+                {
+                    if(!toyoPool[i].activeInHierarchy){
+                        toyoPool[i].SetActive(true);
+                        obstacleSpawnPos.y = toyoYPos;
+                        newObstacle = toyoPool[i];
+                        break;
+                    }
+                }
+                break; 
+
         }
             newObstacle.transform.position = obstacleSpawnPos;//生成したオブジェクトをobstacleSpawnPosへ
 

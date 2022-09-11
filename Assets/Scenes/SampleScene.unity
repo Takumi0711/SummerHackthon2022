@@ -1168,11 +1168,13 @@ MonoBehaviour:
   fallentreePrefab: {fileID: 1323129546812913452, guid: 4ad42f09c884840478af5c2a0f6e584e, type: 3}
   jyuntendoPrefab: {fileID: 4887817164117905742, guid: 52d897994904c4546af15a1c6e0cd26c, type: 3}
   komazawaPrefab: {fileID: 7737926764330630241, guid: a654004f37905445ab749a9d997be691, type: 3}
+  toyoPrefab: {fileID: 6451788584697683844, guid: d10e7dc4b52f74c57aa65ff5b74430c9, type: 3}
   makibisiYPos: -3.75
   rockYPos: -3.5
   fallentreeYPos: -3.75
   jyuntendoYPos: -3.5
   komazawaYPos: -3.5
+  toyoYPos: -3.3
   minSpawnWaitTime: 2
   maxSpawnWaitTime: 3.5
   makibisiPool: []
@@ -1180,6 +1182,7 @@ MonoBehaviour:
   fallentreePool: []
   jyuntendoPool: []
   komazawaPool: []
+  toyoPool: []
   initialObstacleToSpawn: 5
 --- !u!4 &2137570468
 Transform:

@@ -14,7 +14,7 @@ public class ScoreScript : MonoBehaviour
 
     public static void ShowScorePanel(){
         Time.timeScale = 0f; //ゲーム内時間の停止
-        double Score = Math.Round(Time.time, 1, MidpointRounding.AwayFromZero)*100;
+        double Score = Math.Round(Time.timeSinceLevelLoad, 1, MidpointRounding.AwayFromZero)*100;
         // Type == Number の場合
         naichilab.RankingLoader.Instance.SendScoreAndShowRanking (Score);
     }
