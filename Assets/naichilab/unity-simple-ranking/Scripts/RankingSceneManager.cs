@@ -238,6 +238,7 @@ namespace naichilab
         {
             closeButton.interactable = false;
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("Ranking");
+            Time.timeScale = 1f;
             UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
         }
 

@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     private void PlayerJump(){
         if(Input.GetMouseButtonDown(0)){//0番はマウスの左クリック（スマホだとタップで出来るはず）
             Debug.Log("ジャンプボタン");
+            
             if(IsGrounded() == true){
                 Debug.Log("ジャンプ動作");
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
