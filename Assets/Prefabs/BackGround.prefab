@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2712917701845171593}
   - component: {fileID: 1845297318394214259}
   m_Layer: 5
-  m_Name: Aogakuppoinanika(ground)
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9aeda0ca5b436d24c8ef8b115edae167, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1ddbdbbeadb2d14bb0cdfca756dcf6c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
