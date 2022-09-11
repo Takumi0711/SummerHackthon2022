@@ -15,7 +15,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private float spawnWaitTime;//生成する時間
 
-    private int obstacleTypeCount = 3;//障害物の酒類を扱う変数
+    private int obstacleTypeCount = 3;//障害物の種類を扱う変数
     private int obstacleToSpawn = 0;//生成するオブジェクトを扱う数値
 
     private Camera mainCamera;
