@@ -2,7 +2,7 @@
 
 ### 青学駅伝をモデルにしたアクションゲーム
 
-## デモ
+## デモ動画 ※音量注意
 
 [![](https://img.youtube.com/vi/UU8pirPAnUI/0.jpg)](https://www.youtube.com/watch?v=UU8pirPAnUI)
 
